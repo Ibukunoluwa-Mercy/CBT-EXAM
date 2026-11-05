@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ExamPilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <header class="app-header">
+        <a class="brand" href="/">Exam<span class="brand-accent">Pilot</span></a>
+        <nav><a href="{{ url_for('dashboard') }}">Dashboard</a><a href="{{ url_for('logout') }}">Log out</a></nav>
+    </header>
+    <main class="dashboard">
+        <section class="welcome-block">
+            <div><p class="eyebrow">STUDENT DASHBOARD</p><h1>Welcome, {{ session.student_name.split()[0] }}!</h1><p class="muted">Ready to test your knowledge?</p></div>
+            <a class="button" href="{{ url_for('exam') }}">Start an exam <span aria-hidden="true">&rarr;</span></a>
+        </section>
+        <section class="dashboard-grid">
+            <article class="stat-card"><span class="feature-icon">&#128221;</span><strong>{{ attempts|length }}</strong><small>Exams completed</small></article>
+            <article class="stat-card"><span class="feature-icon">&#127942;</span><strong>{% if attempts %}{{ attempts[0].score }}/{{ attempts[0].total }}{% else %}--{% endif %}</strong><small>Latest score</small></article>
+            <article class="stat-card"><span class="feature-icon">&#128200;</span><strong>{% if attempts %}{{ ((attempts[0].score / attempts[0].total) * 100)|round|int }}%{% else %}--{% endif %}</strong><small>Latest percentage</small></article>
+        </section>
+        <section class="panel">
+            <div class="panel-heading"><h2>Recent results</h2><a href="{{ url_for('exam') }}">Take another exam</a></div>
+            {% if attempts %}
+                <div class="result-list">{% for attempt in attempts %}<a class="result-row" href="{{ url_for('result', attempt_id=attempt.id) }}"><span>Exam attempt {{ loop.index }}</span><strong>{{ attempt.score }}/{{ attempt.total }}</strong><small>{{ attempt.completed_at }}</small></a>{% endfor %}</div>
+            {% else %}<p class="empty-state">You have not completed an exam yet. Start your first attempt today.</p>{% endif %}
+        </section>
+    </main>
+</body>
+</html>

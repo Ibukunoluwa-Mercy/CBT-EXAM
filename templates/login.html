@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | ExamPilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <a class="brand" href="/">Exam<span class="brand-accent">Pilot</span></a>
+        <h1>Welcome back</h1>
+        <p class="muted">Log in to continue your exam journey.</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}
+        {% endwith %}
+        <form method="post" class="form-stack">
+            <label>Email address<input type="email" name="email" required autocomplete="email"></label>
+            <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+            <button class="button full-width" type="submit">Log in</button>
+        </form>
+        <p class="form-footer">New student? <a href="{{ url_for('register') }}">Create an account</a></p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result | ExamPilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+    <header class="app-header"><a class="brand" href="/">Exam<span class="brand-accent">Pilot</span></a><nav><a href="{{ url_for('dashboard') }}">Dashboard</a><a href="{{ url_for('logout') }}">Log out</a></nav></header>
+    <main class="result-page">
+        <section class="result-card"><p class="eyebrow">EXAM COMPLETE</p><h1>Your result is ready</h1><div class="score-circle"><strong>{{ percentage }}%</strong><span>Score</span></div><p class="score-summary">You answered <strong>{{ attempt.score }} out of {{ attempt.total }}</strong> questions correctly.</p><div class="actions centered"><a class="button" href="{{ url_for('exam') }}">Try again</a><a class="button button-secondary" href="{{ url_for('dashboard') }}">Back to dashboard</a></div></section>
+    </main>
+</body>
+</html>

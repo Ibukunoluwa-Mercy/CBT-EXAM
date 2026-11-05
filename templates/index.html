@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A secure and simple computer-based testing platform for students.">
     <title>ExamPilot | Computer-Based Testing</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 
 </head>
 
@@ -18,7 +18,7 @@
         <nav class="site-nav" aria-label="Main navigation">
             <a href="#how-it-works">How it works</a>
             <a href="#features">Features</a>
-            <a class="nav-login" href="#student-access">Student login</a>
+            <a class="nav-login" href="{{ url_for('login') }}">Student login</a>
         </nav>
     </header>
 
@@ -28,8 +28,8 @@
                 <h1>Prepare smarter.<br><strong>Perform better.</strong></h1>
                 <p class="hero-text">A secure, simple and reliable computer-based testing platform built to help students demonstrate their knowledge with confidence.</p>
                 <div class="actions" id="student-access">
-                    <a href="#" class="button">Student login <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#" class="button button-secondary">Create an account</a>
+                    <a href="{{ url_for('login') }}" class="button">Student login <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ url_for('register') }}" class="button button-secondary">Create an account</a>
                 </div>
                 <div class="hero-note">
                     <span class="avatar-stack" aria-hidden="true"><i></i><i></i><i></i></span>

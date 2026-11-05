@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | ExamPilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <a class="brand" href="/">Exam<span class="brand-accent">Pilot</span></a>
+        <h1>Create your account</h1>
+        <p class="muted">Join ExamPilot and start practising today.</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}
+        {% endwith %}
+        <form method="post" class="form-stack">
+            <label>Full name<input type="text" name="fullname" required autocomplete="name"></label>
+            <label>Email address<input type="email" name="email" required autocomplete="email"></label>
+            <label>Password<input type="password" name="password" minlength="8" required autocomplete="new-password"></label>
+            <label>Confirm password<input type="password" name="confirm_password" minlength="8" required autocomplete="new-password"></label>
+            <button class="button full-width" type="submit">Create account</button>
+        </form>
+        <p class="form-footer">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+    </main>
+</body>
+</html>

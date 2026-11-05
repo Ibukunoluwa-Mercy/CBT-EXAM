@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exam | ExamPilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='exam.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <header class="app-header exam-header"><a class="brand" href="/">Exam<span class="brand-accent">Pilot</span></a><div class="timer"><span>Time remaining</span><strong data-timer data-seconds="{{ duration }}">--:--</strong></div></header>
+    <main class="exam-page">
+        <div class="exam-intro"><div><p class="eyebrow">PRACTICE EXAM</p><h1>General knowledge assessment</h1><p class="muted">Answer every question, then submit when you are ready.</p></div><span class="question-count">{{ questions|length }} questions</span></div>
+        <form method="post" action="{{ url_for('submit_exam') }}" data-exam-form>
+            {% for question in questions %}
+            <fieldset class="question-card">
+                <legend><span>Question {{ loop.index }}</span>{{ question.question }}</legend>
+                <div class="options">{% for option in question.options.split('|') %}<label class="option"><input type="radio" name="{{ question.id }}" value="{{ option }}" required><span>{{ option }}</span></label>{% endfor %}</div>
+            </fieldset>
+            {% endfor %}
+            <button class="button submit-button" type="submit">Submit exam <span aria-hidden="true">&rarr;</span></button>
+        </form>
+    </main>
+</body>
+</html>
