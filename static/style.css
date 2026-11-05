@@ -1,0 +1,39 @@
+ body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: white;
+            width: 80%;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #123b72;
+        }
+
+        p {
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            background: #123b72;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px;
+        }
+
+        a:hover {
+            background: #2563a6;
+        }
