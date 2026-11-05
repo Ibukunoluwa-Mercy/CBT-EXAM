@@ -4,26 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBT Examination System</title>
+    <meta name="description" content="A secure and simple computer-based testing platform for students.">
+    <title>ExamPilot | Computer-Based Testing</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="ExamPilot home">
+            <span>Exam<span class="brand-accent">Pilot</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#how-it-works">How it works</a>
+            <a href="#features">Features</a>
+            <a class="nav-login" href="#student-access">Student login</a>
+        </nav>
+    </header>
 
-    <div class="container">
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <h1>Prepare smarter.<br><strong>Perform better.</strong></h1>
+                <p class="hero-text">A secure, simple and reliable computer-based testing platform built to help students demonstrate their knowledge with confidence.</p>
+                <div class="actions" id="student-access">
+                    <a href="#" class="button">Student login <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#" class="button button-secondary">Create an account</a>
+                </div>
+                <div class="hero-note">
+                    <span class="avatar-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span>Trusted by students for focused exam practice</span>
+                </div>
+            </div>
 
-        <h1>CBT Examination System</h1>
+            <div class="hero-visual">
+                <div class="image-frame">
+                    <img src="{{ url_for('static', filename='CBT-Practice-1.webp') }}" alt="Students taking a computer-based test">
+                </div>
+            </div>
+        </section>
 
-        <p>Welcome to our Computer-Based Test platform.</p>
+        <section class="trust-strip" id="features" aria-label="Platform benefits">
+            <div class="trust-item">
+                <span class="feature-icon">&#128274;</span>
+                <span><strong>Secure testing</strong><small>Your exams are protected</small></span>
+            </div>
+            <div class="trust-item">
+                <span class="feature-icon">&#9889;</span>
+                <span><strong>Instant results</strong><small>View your score right away</small></span>
+            </div>
+            <div class="trust-item">
+                <span class="feature-icon">&#128200;</span>
+                <span><strong>Track progress</strong><small>Improve with every attempt</small></span>
+            </div>
+        </section>
 
-        <p>Test your knowledge and check your results online.</p>
-
-        <a href="#">Student Login</a>
-
-        <a href="#">Register</a>
-
-    </div>
+        <section class="how-it-works" id="how-it-works">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h2>Everything you need to succeed</h2>
+            <div class="steps">
+                <div><span>01</span><strong>Sign in</strong><p>Access your student dashboard securely.</p></div>
+                <div><span>02</span><strong>Take your exam</strong><p>Answer questions in a focused environment.</p></div>
+                <div><span>03</span><strong>See your results</strong><p>Review your performance and keep improving.</p></div>
+            </div>
+        </section>
+    </main>
 
 </body>
 </html>
